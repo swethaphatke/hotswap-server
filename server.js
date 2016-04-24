@@ -15,7 +15,7 @@ app.get('/version', function (req, res) {
   res.send('{"version": 2}');
 });
 
-app.get('/getUpdated', function (req, res) {
+app.get('/update/app.zip', function (req, res) {
 
   var zip5 = new EasyZip();
   zip5.zipFolder('client', function () {
