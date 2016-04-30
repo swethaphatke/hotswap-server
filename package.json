@@ -18,8 +18,11 @@
   },
   "homepage": "https://github.com/swethaphatke/hotswap-server",
   "devDependencies": {
-    "easy-zip": "0.0.4",
+    "unzip": "latest",
     "express": "^4.13.4",
     "hotswap": "^1.1.0"
+  },
+  "dependencies": {
+    "zip-local": "^0.3.3"
   }
 }

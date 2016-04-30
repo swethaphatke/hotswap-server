@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 
-var EasyZip = require('easy-zip').EasyZip;
+var zipper = require("zip-local");
 
 app.use(express.static(__dirname));
 app.get('/', function (req, res) {
@@ -16,18 +16,28 @@ app.get('/version', function (req, res) {
 });
 
 app.get('/update/app.zip', function (req, res) {
+  var file = __dirname + '/app.zip';
+  
+  zipper.sync.zip("./client").compress().save("app.zip");
+  res.setHeader('Content-disposition', 'attachment; filename=app.zip');
+  res.setHeader('Content-type', 'application/zip');
+  
+  var filestream = fs.createReadStream(file);
+  filestream.pipe(res);
+  
+  fs.unlink("app.zip");
 
-  var zip5 = new EasyZip();
-  zip5.zipFolder('client', function () {
-    zip5.writeToFile('app.zip');
-    var file = __dirname + '/app.zip';
+  // var zip5 = new EasyZip();
+  // zip5.zipFolder('client', function () {
+  //   zip5.writeToFile('app.zip');
+  //   var file = __dirname + '/app.zip';
 
-    res.setHeader('Content-disposition', 'attachment; filename=app.zip');
-    res.setHeader('Content-type', 'application/zip');
+  //   res.setHeader('Content-disposition', 'attachment; filename=app.zip');
+  //   res.setHeader('Content-type', 'application/zip');
 
-    var filestream = fs.createReadStream(file);
-    filestream.pipe(res);
-  });
+  //   var filestream = fs.createReadStream(file);
+  //   filestream.pipe(res);
+  // });
 
 });
 
