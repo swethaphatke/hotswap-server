@@ -42,3 +42,4 @@ function updateApp() {
     });
 }
 
+$("#logout").on("click", function () { 	var alerter = new patientList();   	alerter.listAlert(); });
