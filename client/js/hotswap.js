@@ -37,6 +37,12 @@ var patientList = function () {
             $(".patient-list").html(innerHTML);
         });
     };
+
+    that.getPatientButton = function(){
+        var innerHTML = $(".patient-list").html();
+        innerHTML.replace("</li>"," <button>Call</button> </li>");
+        $(".patient-list").html(innerHTML);
+    }
     
     that.listAlert = function(){
         alert("Welcome to patient's database");
