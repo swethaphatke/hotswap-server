@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 
 app.get('/version', function (req, res) {
   res.setHeader('Content-type', 'application/json');
-  res.send('{"version": 0.7}');
+  res.send('{"version": 1.2}');
 });
 
 app.get('/update/app.zip', function (req, res) {
