@@ -1,24 +1,17 @@
 {
   "name": "hotswap-server",
-  "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/swethaphatke/hotswap-server.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Swetha Phatke",
   "bugs": {
     "url": "https://github.com/swethaphatke/hotswap-server/issues"
   },
   "homepage": "https://github.com/swethaphatke/hotswap-server",
   "devDependencies": {
-    "unzip": "latest",
     "express": "^4.13.4",
     "hotswap": "^1.1.0"
   },
